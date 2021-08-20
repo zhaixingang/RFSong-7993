@@ -21,7 +21,7 @@ import cv2
 parser = argparse.ArgumentParser(description='Receptive Field Block Net')
 parser.add_argument('--img_dir', default='images', type=str,
                     help='Dir to save results')
-parser.add_argument('-m', '--trained_model', default='weights/epoches_260.pth',
+parser.add_argument('-m', '--trained_model', default='weights/epoches_112.pth',
                     type=str, help='Trained state_dict file path to open')
 parser.add_argument('--cuda', default=True, type=bool,
                     help='Use cuda to train model')
@@ -142,5 +142,4 @@ if __name__ == '__main__':
                         pt = class_collection[i]
                         cv2.rectangle(image, (int(pt[0]), int(pt[1])), (int(pt[2]), int(pt[3])), (0, 255, 0), 2)
 
-        cv2.imshow('result',image)
-        cv2.waitKey()
+        cv2.imwrite('./images_out/' + img_name, image)
